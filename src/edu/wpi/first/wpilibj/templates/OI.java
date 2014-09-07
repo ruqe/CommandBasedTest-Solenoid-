@@ -1,11 +1,13 @@
 
 package edu.wpi.first.wpilibj.templates;
 
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+//import edu.wpi.first.wpilibj.buttons.Button;
+//import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
+import edu.wpi.first.wpilibj.templates.commands.FeelerMove;
+import edu.wpi.first.wpilibj.templates.commands.Intake;
+import edu.wpi.first.wpilibj.templates.commands.Outtake;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -45,10 +47,16 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
     Joystick leftStick;
     JoystickButton feelerButton;
+    JoystickButton intakeButton;
+    JoystickButton outtakeButton;
     public OI(){
      leftStick = new Joystick(1);
      feelerButton = new JoystickButton(leftStick, 1);
-     feelerButton.whileHeld(new ExampleCommand());
+     intakeButton = new JoystickButton(leftStick, 2);
+     outtakeButton = new JoystickButton(leftStick, 3);
+     feelerButton.whenPressed(new FeelerMove());
+     intakeButton.whileHeld(new Intake());
+     outtakeButton.whileHeld(new Outtake());
      }        
     
      

@@ -13,8 +13,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
-import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
-import edu.wpi.first.wpilibj.templates.subsystems.Feelers;
+import edu.wpi.first.wpilibj.templates.commands.FeelerMove;
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -32,7 +32,7 @@ public class RobotTemplate extends IterativeRobot {
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
+        autonomousCommand = new FeelerMove();
 
         // Initialize all subsystems
         CommandBase.init();
@@ -56,7 +56,7 @@ public class RobotTemplate extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         autonomousCommand.cancel();
-        Feelers feelers = new Feelers();
+       
         
     }
 

@@ -43,8 +43,27 @@ public class Feelers extends Subsystem{
             feelerSolenoid.set(FEELERS_OUT);
         }
     }
+    public void intake(){
+        leftFeeler.set(1);
+        rightFeeler.set(-1);
+        
+    }
+    
+    public void outtake(){
+        leftFeeler.set(-1);
+        rightFeeler.set(1);
+    }
      public boolean getState(){
          return feelerSolenoid.get();
          
      } 
+     public Solenoid getSolenoid(){
+         return feelerSolenoid;
+     }
+     public Jaguar getLeftFeeler(){
+         return leftFeeler;
+     }
+     public Jaguar getRightFeeleer(){
+         return rightFeeler;
+     }
 }
